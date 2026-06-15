@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatView</title>
+    <title>ViewChat - View Your WhatsApp Chats</title>
     <style>
         * {
             margin: 0;
@@ -13,265 +13,520 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .chat-container {
-            width: 100%;
-            max-width: 900px;
-            height: 90vh;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .chat-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-header h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .user-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: #4ade80;
-            border-radius: 50%;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-            background: #f8f9fa;
-        }
-
-        .message {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
-            max-width: 80%;
-        }
-
-        .message.user {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .user .avatar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .message-content {
-            padding: 12px 18px;
-            border-radius: 18px;
-            line-height: 1.5;
-        }
-
-        .message.user .message-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-bottom-right-radius: 4px;
-        }
-
-        .message.bot .message-content {
-            background: white;
+            line-height: 1.6;
             color: #333;
-            border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .message-time {
-            font-size: 0.75rem;
-            margin-top: 5px;
-            opacity: 0.8;
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
         }
 
-        .chat-input-area {
-            padding: 20px 30px;
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            display: inline-block;
             background: white;
-            border-top: 1px solid #e0e0e0;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #25D366;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 15px;
             display: flex;
-            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: #25D366;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #f8f9fa;
+            padding: 5rem 1rem;
+        }
+
+        .how-it-works .section-title {
+            color: #667eea;
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
             align-items: center;
         }
 
-        .chat-input-area input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
+        .step:last-child {
+            margin-bottom: 0;
         }
 
-        .chat-input-area input:focus {
-            border-color: #667eea;
-        }
-
-        .send-btn {
+        .step-number {
             width: 50px;
             height: 50px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border: none;
             border-radius: 50%;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .step-content p {
+            color: #666;
+        }
+
+        /* Preview Section */
+        .preview {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .preview-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .preview-header {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-header h3 {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .preview-content {
+            padding: 1.5rem;
+        }
+
+        .chat-message {
+            background: #f0f2f5;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .chat-message.user {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-message p {
+            margin-bottom: 0.5rem;
+        }
+
+        .chat-meta {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            text-align: right;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .send-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .send-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
+        /* Footer */
+        footer {
+            background: #25D366;
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
         }
 
-        /* Scrollbar styling */
-        .chat-messages::-webkit-scrollbar {
-            width: 8px;
+        footer p {
+            opacity: 0.9;
         }
 
-        .chat-messages::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
 
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 4px;
-        }
+            .hero h2 {
+                font-size: 1.5rem;
+            }
 
-        .chat-messages::-webkit-scrollbar-thumb:hover {
-            background: #a1a1a1;
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto 1rem;
+            }
+
+            .step-content {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>ChatView</h1>
-            <div class="user-status">
-                <span class="status-dot"></span>
-                <span>Online</span>
+    <!-- Header -->
+    <header>
+        <h1>ViewChat</h1>
+        <p>Import, view, and manage your WhatsApp chats with ease</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>View Your WhatsApp Chats, Anywhere</h2>
+        <p>Import your WhatsApp chat exports and enjoy a beautiful, feature-rich interface to browse your conversations, view images, and download documents.</p>
+        <a href="#" class="hero-btn">Get Started</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        <path d="M8 10h.01"></path>
+                        <path d="M12 10h.01"></path>
+                        <path d="M16 10h.01"></path>
+                        <path d="M9 15h6"></path>
+                    </svg>
+                </div>
+                <h3>Import WhatsApp Chats</h3>
+                <p>Easy import of exported WhatsApp chat files. Support for both text and media-rich conversations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3>WhatsApp-like Interface</h3>
+                <p>Navigate your conversations with an interface that feels familiar and intuitive, just like WhatsApp.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3>Custom Chat Names</h3>
+                <p>Rename imported chats for your convenience and better organization of your conversation history.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+                <h3>View Images</h3>
+                <p>Browse and view images from your chats in a beautiful gallery view. Select and view images on demand.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h3>Export Documents</h3>
+                <p>Download and export attached documents from your chats. Keep your important files safe and accessible.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <h3>Privacy Focused</h3>
+                <p>Your chats stay on your device. We don't collect or store your data. Complete privacy guaranteed.</p>
             </div>
         </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-                <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">AI</div>
-                <div class="message-content">
-                    <p>Hello! Welcome to ChatView. How can I help you today?</p>
-                    <div class="message-time">Just now</div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Export from WhatsApp</h3>
+                    <p>Open WhatsApp, select the chat you want to save, go to chat settings, and export the chat. Choose whether to include media or not.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Import to ViewChat</h3>
+                    <p>Upload the exported chat file to ViewChat. Our parser will automatically extract all messages, images, and documents.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>View and Manage</h3>
+                    <p>Rename your chat for easy identification, browse through messages, view images, and export any documents you need.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="chat-input-area">
-            <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
-            <button class="send-btn" id="sendBtn">
-                <svg viewBox="0 0 24 24">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-            </button>
-        </div>
-    </div>
+    </section>
 
-    <script>
-        const chatMessages = document.getElementById('chatMessages');
-        const messageInput = document.getElementById('messageInput');
-        const sendBtn = document.getElementById('sendBtn');
-
-        function scrollToBottom() {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function addMessage(text, sender = 'user') {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            
-            const avatarText = sender === 'user' ? 'ME' : 'AI';
-            const avatarStyle = sender === 'user' 
-                ? 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);'
-                : 'background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);';
-            
-            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            messageDiv.innerHTML = `
-                <div class="avatar" style="${avatarStyle}">${avatarText}</div>
-                <div class="message-content">
-                    <p>${text}</p>
-                    <div class="message-time">${time}</div>
+    <!-- Preview Section -->
+    <section class="preview">
+        <h2 class="section-title">What You'll See</h2>
+        <div class="preview-grid">
+            <div class="preview-card">
+                <div class="preview-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <h3>Messages</h3>
                 </div>
-            `;
-            
-            chatMessages.appendChild(messageDiv);
-            scrollToBottom();
-        }
+                <div class="preview-content">
+                    <div class="chat-message">
+                        <p>Hello! How are you doing today?</p>
+                        <div class="chat-meta">10:30 AM</div>
+                    </div>
+                    <div class="chat-message user">
+                        <p>I'm doing great! Just finished working on a new project.</p>
+                        <div class="chat-meta">10:32 AM</div>
+                    </div>
+                    <div class="chat-message">
+                        <p>That sounds amazing! Can't wait to see it.</p>
+                        <div class="chat-meta">10:35 AM</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-card">
+                <div class="preview-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <h3>Images</h3>
+                </div>
+                <div class="preview-content">
+                    <div class="chat-message">
+                        <p>Check out this photo I took yesterday!</p>
+                        <div class="chat-meta">Yesterday</div>
+                    </div>
+                    <div style="background: #f0f2f5; border-radius: 10px; padding: 1rem; text-align: center; margin-top: 0.5rem;">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">photo.jpg</p>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-card">
+                <div class="preview-header">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <h3>Documents</h3>
+                </div>
+                <div class="preview-content">
+                    <div class="chat-message">
+                        <p>Here's the document you asked for.</p>
+                        <div class="chat-meta">Yesterday</div>
+                    </div>
+                    <div style="background: #fff3e0; border-radius: 10px; padding: 1rem; display: flex; align-items: center; gap: 10px; margin-top: 0.5rem;">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ff9800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        <div>
+                            <p style="font-weight: 600; margin-bottom: 0.25rem;">report.pdf</p>
+                            <p style="font-size: 0.75rem; color: #666;">2.4 MB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function sendMessage() {
-            const text = messageInput.value.trim();
-            if (text) {
-                addMessage(text, 'user');
-                messageInput.value = '';
-                
-                // Simulate bot response
-                setTimeout(() => {
-                    addMessage("I'm a demo response! In a real app, this would connect to your backend or AI service.", 'bot');
-                }, 1000);
-            }
-        }
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Import your first WhatsApp chat today and experience the power of ViewChat. Your conversations, your way.</p>
+        <a href="#" class="cta-btn">Import Your First Chat</a>
+    </section>
 
-        sendBtn.addEventListener('click', sendMessage);
-
-        messageInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Initialize
-        scrollToBottom();
-    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ViewChat. All rights reserved.</p>
+    </footer>
 </body>
 </html>
