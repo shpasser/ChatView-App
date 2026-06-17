@@ -204,8 +204,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
-    max-width: 1200px;
     margin: 0 auto;
+    max-width: 1000px;
 }
 
 .feature-card {
@@ -311,6 +311,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .preview-card {
