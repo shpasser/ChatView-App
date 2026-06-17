@@ -202,8 +202,10 @@ section {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .feature-card {
