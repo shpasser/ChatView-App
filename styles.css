@@ -10,54 +10,54 @@
     --primary-color: #25D366;
     --primary-dark: #128C7E;
     --primary-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    
+
     /* Secondary Colors */
     --secondary-color: #667eea;
     --secondary-dark: #764ba2;
     --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    
+
     /* Background Colors */
     --bg-primary: #f8f9fa;
     --bg-white: #ffffff;
     --bg-dark: #333333;
-    
+
     /* Text Colors */
     --text-primary: #333333;
     --text-secondary: #666666;
     --text-light: #999999;
     --text-white: #ffffff;
-    
+
     /* Border Colors */
     --border-light: #e0e0e0;
     --border-medium: #f0f0f0;
-    
+
     /* Status Colors */
     --success-color: #4ade80;
     --warning-color: #ffc107;
     --error-color: #dc3545;
-    
+
     /* Message Colors */
     --message-user-bg: var(--primary-gradient);
     --message-bot-bg: var(--bg-white);
     --message-user-text: var(--text-white);
     --message-bot-text: var(--text-primary);
-    
+
     /* Card Colors */
     --card-shadow: rgba(0, 0, 0, 0.08);
     --card-hover-shadow: rgba(0, 0, 0, 0.15);
-    
+
     /* Spacing */
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-    
+
     /* Border Radius */
     --radius-sm: 8px;
     --radius-md: 15px;
     --radius-lg: 20px;
     --radius-pill: 50px;
-    
+
     /* Transitions */
     --transition-fast: 0.2s;
     --transition-normal: 0.3s;
@@ -1404,4 +1404,43 @@ footer p {
 .document-size {
     font-size: 0.75rem;
     color: var(--text-secondary);
+}
+
+/* =========================================
+   BUTTON STYLES FOR HERO AND CTA
+   ========================================= */
+.hero-btn,
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--bg-white);
+    color: var(--primary-color);
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--bg-white);
+}
+
+.hero-btn:hover,
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: var(--bg-white);
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+.cta-btn {
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    border: 2px solid var(--primary-gradient);
+}
+
+.cta-btn:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--text-white);
 }
