@@ -420,6 +420,34 @@ footer p {
 }
 
 /* =========================================
+   CLARIFICATIONS SECTION
+   ========================================= */
+.clarifications {
+    background: var(--bg-white);
+    padding: var(--spacing-xl) var(--spacing-sm);
+    text-align: center;
+    border-top: 1px solid var(--border-medium);
+}
+
+.clarifications h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.trademark {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0;
+}
+
+/* =========================================
    POLICY PAGES STYLES
    ========================================= */
 .policy-content,
