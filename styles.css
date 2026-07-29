@@ -7,14 +7,14 @@
    ========================================= */
 :root {
     /* Primary Colors - ChatView Brand */
-    --primary-color: #25D366;
+    --primary-color: #1a7a4d;
     --primary-dark: #128C7E;
-    --primary-gradient: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    --primary-gradient: linear-gradient(135deg, #1a7a4d 0%, #128C7E 100%);
 
     /* Secondary Colors */
     --secondary-color: #667eea;
     --secondary-dark: #764ba2;
-    --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #5a6fd6 0%, #764ba2 100%);
 
     /* Background Colors */
     --bg-primary: #f8f9fa;
@@ -22,9 +22,9 @@
     --bg-dark: #333333;
 
     /* Text Colors */
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --text-light: #999999;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-light: #707070;
     --text-white: #ffffff;
 
     /* Border Colors */
@@ -33,8 +33,8 @@
 
     /* Status Colors */
     --success-color: #4ade80;
-    --warning-color: #ffc107;
-    --error-color: #dc3545;
+    --warning-color: #e0a600;
+    --error-color: #c52828;
 
     /* Message Colors */
     --message-user-bg: var(--primary-gradient);
@@ -95,7 +95,7 @@ header h1 {
 }
 
 header p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     opacity: 0.9;
 }
 
@@ -116,18 +116,19 @@ a:hover {
 /* Skip Navigation Link */
 .skip-link {
     position: absolute;
-    top: -40px;
-    left: 0;
+    top:  0.5rem;
+    left: 0.5rem;
     background: var(--primary-color);
     color: var(--text-white);
     padding: 8px 16px;
     z-index: 100;
     text-decoration: none;
     font-weight: 600;
+    border-radius: 4px;
 }
 
 .skip-link:focus {
-    top: 0;
+    top: 0.4rem;
     outline: 3px solid var(--warning-color);
     outline-offset: 2px;
 }
@@ -479,7 +480,7 @@ footer p {
 
 .disclaimer {
     font-size: 0.8rem;
-    color: #333333;
+    color: #1a1a1a;
     margin-top: 0;
 }
 
@@ -544,8 +545,8 @@ footer p {
 }
 
 .warning {
-    background: #fff8e1;
-    border-left: 4px solid #ffeb3b;
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
     padding: var(--spacing-md);
     margin: var(--spacing-md) 0;
 }
@@ -556,20 +557,20 @@ footer p {
 }
 
 .limitation-box {
-    background: #ffebee;
-    border-left: 4px solid #e53935;
+    background: #f8d7da;
+    border-left: 4px solid #dc3545;
     padding: var(--spacing-lg);
     margin: var(--spacing-lg) 0;
 }
 
 .limitation-box h4 {
-    color: #000000;
+    color: #1a1a1a;
     margin-bottom: var(--spacing-sm);
 }
 
 .limitation-box p {
     margin-bottom: var(--spacing-sm);
-    color: #000000;
+    color: #1a1a1a;
 }
 
 .last-updated {
@@ -578,7 +579,7 @@ footer p {
     border-radius: var(--radius-sm);
     margin-top: var(--spacing-lg);
     font-size: 0.9rem;
-    color: #333333;
+    color: #1a1a1a;
     text-align: center;
 }
 
@@ -638,6 +639,8 @@ footer p {
     --card-shadow: rgba(0, 0, 0, 0.3);
     --card-hover-shadow: rgba(0, 0, 0, 0.5);
     --border-medium: #2a2a4a;
+    --warning-color: #e0a600;
+    --error-color: #c52828;
 }
 
 /* =========================================
@@ -843,8 +846,6 @@ a[href^="//"]:not(.footer-links a):not(.back-link):not(.hero-btn):not(.cta-btn):
 }
 
 .cta-btn {
-    background: var(--primary-gradient);
-    color: var(--text-white);
     border: 2px solid var(--primary-gradient);
 }
 
