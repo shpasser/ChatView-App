@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
         <h1>ChatView</h1>
         <p>Terms of Service</p>
     </header>
 
     <div class="container">
-        <a href="index.html" class="back-link">
+        <a href="index.html" class="back-link" aria-label="Back to Home">
             Back to Home
         </a>
+
+        <main id="main-content" role="main" tabindex="-1">
 
         <div class="tos-content">
             <h2>Terms of Service</h2>
@@ -125,7 +129,17 @@
             <div class="last-updated">
                 <p>Last updated: June 17, 2026</p>
             </div>
-        </div>
+        <footer role="contentinfo">
+        <nav role="navigation" aria-label="Footer links">
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <span class="footer-separator">|</span>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </nav>
+        <p>&copy; 2026 ChatView. All rights reserved.</p>
+    </footer>
+    </main>
     </div>
 </body>
 </html>

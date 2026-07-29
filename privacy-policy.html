@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
         <h1>ChatView</h1>
         <p>Privacy Policy</p>
     </header>
 
     <div class="container">
-        <a href="index.html" class="back-link">
+        <a href="index.html" class="back-link" aria-label="Back to Home">
             Back to Home
         </a>
+
+        <main id="main-content" role="main" tabindex="-1">
 
         <div class="policy-content">
             <h2>Privacy Policy</h2>
@@ -78,7 +82,7 @@
             <div class="last-updated">
                 <p>Last updated: June 17, 2026</p>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>
