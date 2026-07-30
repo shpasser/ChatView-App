@@ -9,6 +9,7 @@
     /* Primary Colors - ChatView Brand */
     --primary-color: #1a7a4d;
     --primary-dark: #128C7E;
+    --primary-darker: #0d5d2d;
     --primary-gradient: linear-gradient(135deg, #1a7a4d 0%, #128C7E 100%);
 
     /* Secondary Colors */
@@ -118,7 +119,7 @@ a:hover {
     position: absolute;
     top:  0.5rem;
     left: 0.5rem;
-    background: var(--primary-color);
+    background: var(--primary-darker);
     color: var(--text-white);
     padding: 8px 16px;
     z-index: 100;
@@ -424,7 +425,7 @@ section {
    FOOTER STYLES
    ========================================= */
 footer {
-    background: var(--primary-color);
+    background: var(--primary-darker);
     color: var(--text-white);
     padding: var(--spacing-xl) var(--spacing-sm);
     text-align: center;
@@ -480,7 +481,7 @@ footer p {
 
 .disclaimer {
     font-size: 0.8rem;
-    color: #1a1a1a;
+    color: var(--text-secondary);
     margin-top: 0;
 }
 
@@ -641,6 +642,8 @@ footer p {
     --border-medium: #2a2a4a;
     --warning-color: #e0a600;
     --error-color: #c52828;
+
+    --primary-color: #22a85c;
 }
 
 /* =========================================
