@@ -119,19 +119,41 @@ a:hover {
     position: absolute;
     top:  0.5rem;
     left: 0.5rem;
-    background: var(--primary-darker);
-    color: var(--text-white);
-    padding: 8px 16px;
+    background: var(--bg-white);
+    color: var(--primary-color);
+    width: 56px;
+    height: 56px;
     z-index: 100;
     text-decoration: none;
-    font-weight: 600;
-    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--border-light);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.skip-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
 }
 
 .skip-link:focus {
     top: 0.4rem;
-    outline: 3px solid var(--warning-color);
+    outline: 3px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+.skip-link:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.skip-link svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
 }
 
 /* =========================================
@@ -531,18 +553,31 @@ footer p {
 }
 
 .back-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
-    align-items: center;
-    gap: 5px;
+    transition: color var(--transition-normal);
 }
 
 .back-link:hover {
     text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+.back-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    transition: transform var(--transition-normal);
+}
+
+.back-link:hover svg {
+    transform: translateX(-3px);
 }
 
 .warning {
