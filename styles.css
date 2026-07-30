@@ -950,6 +950,30 @@ a[href^="//"]:not(.footer-links a):not(.back-link):not(.hero-btn):not(.cta-btn):
     border: 2px solid var(--primary-gradient);
 }
 
+/* App Store badge link */
+.app-store-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+}
+
+.app-store-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Light theme - show white badge, hide black */
+[data-theme="light"] .app-store-img-black {
+    display: none;
+}
+
+/* Dark theme - show black badge, hide white */
+[data-theme="dark"] .app-store-img-white {
+    display: none;
+}
+
 .cta-btn:hover {
     background: var(--primary-dark);
     border-color: var(--primary-dark);
