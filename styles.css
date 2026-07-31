@@ -605,7 +605,11 @@ footer p {
 }
 
 .limitation-box p {
+    color: #1a1a1a;
     margin-bottom: var(--spacing-sm);
+}
+
+.limitation-box ul li {
     color: #1a1a1a;
 }
 
