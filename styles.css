@@ -368,7 +368,7 @@ section {
 
 .preview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     max-width: 1200px;
     margin: 0 auto;
@@ -396,6 +396,7 @@ section {
 
 .preview-content {
     padding: var(--spacing-lg);
+    text-align: center;
 }
 
 .chat-message {
@@ -884,6 +885,7 @@ footer p {
 .preview-content-img {
     border: 2px solid gray;
     border-radius: 1rem;
+    width: auto;
     max-width: 100%;
     height: auto;
 }
