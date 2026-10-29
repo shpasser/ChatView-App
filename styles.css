@@ -368,10 +368,25 @@ section {
 
 .preview-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: var(--spacing-lg);
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .preview-grid {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0;
+    }
 }
 
 .preview-card {
